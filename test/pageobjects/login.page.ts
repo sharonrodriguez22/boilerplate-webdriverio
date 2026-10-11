@@ -23,12 +23,29 @@ class LoginPage {
         return $('~button-LOGIN');
     }
 
+    public get emailError () {
+        return $('//android.widget.TextView[@text="Please enter a valid email address"]');
+    }
+
+    public get passwordError () {
+        return $('//android.widget.TextView[@text="Please enter at least 8 characters"]');
+    }
+
     /**
      * Opens the login form from the app's bottom navigation.
      */
     public async openLoginForm () {
         await allureReporter.step('Open the login form', async () => {
             await this.loginBtn.click();
+        });
+    }
+
+    /**
+     * Submits the form without filling any field.
+    */
+    public async submitEmptyForm () {
+        await allureReporter.step('Submit the form with no credentials', async () => {
+            await this.btnSubmit.click();
         });
     }
 
