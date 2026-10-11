@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 
 describe('Login Scenarios', () => {
     it('should login with valid credentials', async () => {
-        await LoginPage.loginBtn.click();
+        await LoginPage.openLoginForm();
         await LoginPage.login('tomsmith@mail.com', 'SuperSecretPassword!');
         await expect(AlertPage.messageAlert).toHaveText(expect.stringContaining('You are logged in!'));
     });
@@ -20,7 +20,7 @@ describe('Login Scenarios', () => {
     // === AAA Pattern Example ===
     it('should login successfully following the AAA pattern', async () => {
         // Arrange: Navigate to the login screen
-        await LoginPage.loginBtn.click();
+        await LoginPage.openLoginForm();
 
         // Assert (pre-conditions): Ensure elements are present before acting
         await expect(LoginPage.inputUsername).toBeDisplayed();
@@ -45,7 +45,7 @@ describe('Login Scenarios', () => {
     for (const row of data) {
         it(`DDT JSON - User: "${row.username}" → message: "${row.expectedMessage}"`, async () => {
             // Arrange: Navigate to the login screen
-            await LoginPage.loginBtn.click();
+            await LoginPage.openLoginForm();
 
             // Act: Perform login with data row
             await LoginPage.login(row.username, row.password);
@@ -78,7 +78,7 @@ describe('Login Scenarios', () => {
     for (const row of userData) {
         it(`DDT CSV - User: "${row.username}" → expected action: ${row.expectedAction}`, async () => {
             // Arrange: Navigate to the login screen
-            await LoginPage.loginBtn.click();
+            await LoginPage.openLoginForm();
 
             // Act: Perform login with CSV data row
             await LoginPage.login(row.username, row.password);

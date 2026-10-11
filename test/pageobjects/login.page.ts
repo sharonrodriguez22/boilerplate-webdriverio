@@ -1,3 +1,5 @@
+import allureReporter from '@wdio/allure-reporter';
+
 /**
  * sub page containing specific selectors and methods for a specific page
  */
@@ -22,13 +24,24 @@ class LoginPage {
     }
 
     /**
+     * Opens the login form from the app's bottom navigation.
+     */
+    public async openLoginForm () {
+        await allureReporter.step('Open the login form', async () => {
+            await this.loginBtn.click();
+        });
+    }
+
+    /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
     public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await allureReporter.step(`Submit credentials for "${username}"`, async () => {
+            await this.inputUsername.setValue(username);
+            await this.inputPassword.setValue(password);
+            await this.btnSubmit.click();
+        });
     }
 }
 
