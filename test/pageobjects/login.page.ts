@@ -20,7 +20,10 @@ class LoginPage {
     }
 
     public get btnSubmit () {
-        return $('~button-LOGIN');
+       return $(
+        'android=new UiScrollable(new UiSelector().scrollable(true))' +
+        '.scrollIntoView(new UiSelector().description("button-LOGIN"))'
+        );
     }
 
     public get emailError () {
