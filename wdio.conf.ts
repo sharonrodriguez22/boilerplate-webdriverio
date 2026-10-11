@@ -66,7 +66,7 @@ export const config: Options.Testrunner = {
         'appium:automationName': 'UiAutomator2',
         'appium:appPackage': 'com.wdiodemoapp',
         'appium:appActivity': 'com.wdiodemoapp.MainActivity',
-        'appium:app': __dirname + '/app/android.wdio.native.app.v1.0.8.apk',
+        'appium:app': __dirname + '/app/android.wdio.native.app.v2.2.0.apk',
         'appium:uiautomator2ServerInstallTimeout': 120000,
         'appium:adbExecTimeout': 120000
     }],
