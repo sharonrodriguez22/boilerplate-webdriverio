@@ -52,9 +52,11 @@ class LoginPage {
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
-     */
+    */
     public async login (username: string, password: string) {
-        await allureReporter.step(`Submit credentials for "${username}"`, async () => {
+        const stepName = `Submit credentials for "${username}" (password: ${password.length} chars)`;
+
+        await allureReporter.step(stepName, async () => {
             await this.inputUsername.setValue(username);
             await this.inputPassword.setValue(password);
             await this.btnSubmit.click();
