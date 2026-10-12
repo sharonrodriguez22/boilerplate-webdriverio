@@ -1,3 +1,25 @@
+## About this fork
+
+This repository extends [charlyautomatiza/boilerplate-webdriverio](https://github.com/charlyautomatiza/boilerplate-webdriverio),
+a WebdriverIO + Appium boilerplate by Carlos Gauto. The original boilerplate, its
+documentation below, and most of the commit history are his work. My contribution
+is the set of changes listed here. Thanks to Carlos for sharing it.
+
+### What this fork adds
+
+| Change | Purpose |
+|---|---|
+| 4 negative login scenarios, including boundary-value analysis | Covers form validation and the exact 8-character password boundary |
+| Named Allure steps defined in the Page Object | Each test reports two descriptive steps instead of raw WebDriver commands |
+| `maxInstances: 1` | Runs spec files serially, so a single device serves one Appium session at a time |
+| `UiScrollable` locator for the submit button | Brings the button into view, so the suite also runs on shorter screens |
+| Password length in Allure step titles | Distinguishes boundary-value cases in the report without exposing the credential |
+| `workflow_dispatch` on the CI workflow | Allows running the suite from the Actions tab without pushing a commit |
+
+This fork adds 4 tests, bringing the suite to 11. Green on a local emulator (720×1280) and on GitHub Actions (1080×2220).
+
+---
+
 <p align="center">
   <a href="https://www.youtube.com/c/CharlyAutomatiza?sub_confirmation=1"><img src="https://img.shields.io/badge/CharlyAutomatiza-Youtube-FF0000.svg" style="max-height: 300px;"></a>
   <a href="https://discord.gg/wwM9GwxmRZ"><img src="https://img.shields.io/badge/CharlyAutomatiza-Discord-5865F2.svg?style=flat" style="max-height: 300px;"></a>
